@@ -1,13 +1,22 @@
 {
   "name": "hackernews-node",
   "version": "1.0.0",
+  "description": "",
   "main": "index.js",
-  "license": "MIT",
+  "scripts": {
+    "dev": "node src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prisma:deploy": "yarn prisma deploy",
+    "prettier": "prettier \"**/*.+(ts|tsx|js|jsx|json|css|less|graphql)\"",
+    "prettier:format": "npm run prettier -- --write"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "dependencies": {
-    "bcryptjs": "^2.4.3",
-    "graphql-yoga": "^1.18.1",
-    "jsonwebtoken": "^8.5.1",
-    "prisma": "^1.34.1",
-    "prisma-client-lib": "^1.34.1"
+    "graphql-yoga": "^1.18.1"
+  },
+  "devDependencies": {
+    "prettier": "1.18.2"
   }
 }
