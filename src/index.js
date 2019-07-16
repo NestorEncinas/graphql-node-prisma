@@ -4,6 +4,8 @@ const Query = require("./resolvers/query");
 const Mutation = require("./resolvers/mutation");
 const User = require("./resolvers/user");
 const Link = require("./resolvers/link");
+const Subscription = require("./resolvers/subscription");
+const Vote = require("./resolvers/vote");
 
 // https://www.howtographql.com/graphql-js/1-getting-started/
 
@@ -113,8 +115,10 @@ const checkIfIdExists = args => {
 const resolvers = {
   Query,
   Mutation,
+  Subscription,
   User,
-  Link
+  Link,
+  Vote
 };
 
 /**
