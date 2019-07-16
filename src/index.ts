@@ -5,10 +5,10 @@ const Mutation = require("./resolvers/mutation");
 const User = require("./resolvers/user");
 const Link = require("./resolvers/link");
 const Subscription = require("./resolvers/subscription");
-const Vote = require("./resolvers/vote");
-
+// const Vote = require("./resolvers/vote");
+const { link } = require("./resolvers/vote");
 // https://www.howtographql.com/graphql-js/1-getting-started/
-
+import {} from "module";
 // let links = [
 //   {
 //     id: "link-0",
@@ -53,14 +53,14 @@ const Vote = require("./resolvers/vote");
 /**
  * 2 - Resolvers: object is the actual implementation of the GraphQl schema *
  */
-const checkIfIdExists = args => {
-  const exist = links.find(link => link.id === args.id);
-  if (!exist) {
-    throw new Error(`Link with ID ${args.id} doesn't exist.`);
-  }
+// const checkIfIdExists = args => {
+//   const exist = links.find(link => link.id === args.id);
+//   if (!exist) {
+//     throw new Error(`Link with ID ${args.id} doesn't exist.`);
+//   }
 
-  return exist;
-};
+//   return exist;
+// };
 
 // const resolvers = {
 //   Query: {
@@ -117,8 +117,7 @@ const resolvers = {
   Mutation,
   Subscription,
   User,
-  Link,
-  Vote
+  Link
 };
 
 /**
@@ -130,12 +129,10 @@ const resolvers = {
 const server = new GraphQLServer({
   typeDefs: "./src/schema.graphql",
   resolvers,
-  // context: { prisma }
-  context: request => {
-    return {
-      ...request,
-      prisma
-    };
-  }
+  context: { prisma }
+  // context: ((request: any) => ({
+  //   ...request,
+  //   prisma
+  // })
 });
 server.start(() => console.log(`Server is running on http://localhost:4000`));

@@ -1,5 +1,4 @@
 const feed = async (root, args, context, info) => {
-  import { ClientConstructor } from "../generated/prisma-client/index.d";
   const where = args.filter
     ? {
         OR: [
