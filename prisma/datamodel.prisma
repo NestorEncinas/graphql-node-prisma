@@ -1,0 +1,21 @@
+# definition of your datamodel 
+# The datamodel of your service configuration has two major roles:
+
+# Define the underlying database schema (the models and fields are mapped to database tables).
+# It is the foundation for the auto-generated CRUD operations of your Prisma client.
+
+type User {
+    id: ID! @id
+    name: String!
+    email: String! @unique
+    password: String!
+    links: [Link!]!
+}
+
+type Link {
+    id: ID! @id
+    createdAt: DateTime! @createdAt
+    description: String!
+    url: String!
+    postedBy: User
+}
