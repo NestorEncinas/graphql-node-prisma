@@ -1,7 +1,5 @@
-# main configuration file for your prisma setup
-
 # The HTTP endpoint for your Prisma API
-#endpoint: ''
+#endpoint: ""
 endpoint: https://eu1.prisma.sh/xesto05-dd9928/hackernews-node/dev
 
 # Points to the file that contains your datamodel
@@ -9,9 +7,10 @@ datamodel: datamodel.prisma
 
 # Specifies language & location for the generated Prisma client
 generate:
-  - generator: javascript-client
-    output: ../src/generated/prisma-client
+  - generator: typescript-client
+    output: ./generated/prisma-client
 
+# custom hooks
 hooks:
   post-deploy:
     - echo "Deoplyment Finished"
